@@ -30,8 +30,7 @@ btncreate.onclick = (event) => {
         seller: seller.value,
         price: price.value
     });
-    // console.log(flag);
-
+    
     productName.value = seller.value = price.value = "";
 
     getData(db.products, (data) => {
@@ -58,11 +57,12 @@ btnupdate.onclick = () => {
             seller: seller.value,
             price: price.value
         }).then((updated)=> {
-            // let get = updated ? `data Updated`:`Couldn't Update Data`;
             let get = updated ? true:false;
 
             let updatemsg = document.querySelector('.updatemsg');
             getMsg(get, updatemsg);
+
+            productName.value = seller.value = price.value = "";
         });
     }
 };
